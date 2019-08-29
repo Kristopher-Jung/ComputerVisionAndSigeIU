@@ -13,7 +13,7 @@ class qt_play1(QWidget):
     def __init__(self, parent=None):
         super(qt_play1,self).__init__(parent)
         self.fname = None
-        self.figure = plt.figure()
+        self.figure, self.ax = plt.subplots()
         self.canvas = FigureCanvas(self.figure)
         self.toolbar = NavigationToolbar(self.canvas, self)
         win = QMainWindow()
@@ -71,19 +71,22 @@ class qt_play1(QWidget):
     def plot_I(self,data_IQ_list, I_f, I_t):
         self.figure.clear()
         for I in data_IQ_list:
-            ax = self.figure.add_subplot(111)
-            ax.pcolormesh(I_t, I_f, 10 * np.log10(I[0, :, :]))
+            self.ax = self.figure.add_subplot(111)
+            self.ax.pcolormesh(I_t, I_f, 10 * np.log10(I[0, :, :]))
             #ax.title('Inphase STFT Magnitude')
             #ax.ylabel('Frequency [Hz]')
             #ax.xlabel('Time [sec]')
             # set useblit True on gtkagg for enhanced performance
-            self.canvas.draw_idle()
-            span = SpanSelector(ax, self.onselect_horiz, 'horizontal', useblit=True,
-                                rectprops=dict(alpha=0.5, facecolor='red'))
-            
+            figure, ax = plt.subplots()
+            self.span = SpanSelector(self.ax, self.onselect_horiz, 'horizontal', useblit=True,
+                                     rectprops=dict(alpha=0.5, facecolor='red'))
+            self.canvas.draw()
 
-    def onselect_horiz(self, x_min,x_max):
-        print(x_min,x_max)
+
+
+
+    def onselect_horiz(sekf, xmin, xmax):
+        print(xmin, xmax)
 
 
 
