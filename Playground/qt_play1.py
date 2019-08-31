@@ -60,7 +60,19 @@ class qt_play1(QWidget):
         self.spanQ = RectangleSelector(self.axQ, self.onselectQ, interactive=True)
 
     def onselectI(self, eclick, erelease):
-        print(eclick, erelease)
+        xmin = eclick.xdata
+        xmax = erelease.xdata
+        ymin = eclick.ydata
+        ymax = erelease.ydata
+        Idata = self.I[0,:,:]
+        xindmin, xindmax = np.searchsorted(self.I_t, (xmin, xmax))
+        yindmin, yindmax = np.searchsorted(self.I_f, (ymin, ymax))
+        #print(Idata[xindmin:xindmax, yindmin:yindmax])
+        print(self.I_t[xindmin:xindmax].shape, self.I_f[yindmin:yindmax].shape, Idata[xindmin:xindmax, yindmin:yindmax].shape)
+        self.figureI.clear()
+        self.axI = self.figureI.add_subplot(111)
+        self.axI.plot(10 * np.log10(Idata[xindmin:xindmax, yindmin:yindmax]))
+        self.canvasI.draw()
 
     def onselectQ(self, eclick, erelease):
         print(eclick, erelease)
@@ -84,17 +96,17 @@ class qt_play1(QWidget):
 
     def plot_I(self,data_IQ_list, I_f, I_t):
         self.figureI.clear()
-        I = data_IQ_list[0]
+        self.I = data_IQ_list[0]
         self.axI = self.figureI.add_subplot(111)
-        self.axI.pcolormesh(I_t, I_f, 10 * np.log10(I[0, :, :]))
+        self.axI.pcolormesh(I_t, I_f, 10 * np.log10(self.I[0, :, :]))
         self.canvasI.draw()
 
 
     def plot_Q(self,data_IQ_list,I_f,I_t):
         self.figureQ.clear()
-        Q = data_IQ_list[0]
+        self.Q = data_IQ_list[0]
         self.axQ = self.figureQ.add_subplot(111)
-        self.axQ.pcolormesh(I_t, I_f, 10 * np.log10(Q[1, :, :]))
+        self.axQ.pcolormesh(I_t, I_f, 10 * np.log10(self.Q[1, :, :]))
         self.canvasQ.draw()
 
 
