@@ -1,6 +1,10 @@
 import os
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget, QVBoxLayout, QFileDialog, QHBoxLayout, \
+<<<<<<< HEAD
     QTextEdit
+=======
+    QTextEdit, QInputDialog, QLineEdit
+>>>>>>> 4132e06d609bebd8a193a6678acca2cf386b4fa0
 from scipy import signal
 import numpy as np
 import matplotlib.pyplot as plt
@@ -155,9 +159,12 @@ class signal_boxing_GUI_main(QWidget):
                 with open(fullpath + '.pickle', 'wb') as f:
                     pickle.dump(full, f)
 
+<<<<<<< HEAD
                 # fwith open(fullpath+ '.pickle', 'rb') as ff:
                 #     print(pickle.load(ff))
 
+=======
+>>>>>>> 4132e06d609bebd8a193a6678acca2cf386b4fa0
     def remove_last_pressed(self):
         if self.all_bounded.__len__() >= 1:
             del self.all_bounded[-1]
