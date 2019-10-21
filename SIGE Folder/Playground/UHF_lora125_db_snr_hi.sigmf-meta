@@ -1,0 +1,61 @@
+{
+    "global": {
+        "core:sample_rate": 1000000.0,
+        "core:DTMF": "na",
+	"core:class": "0",
+        "core:modulation": "lora",
+        "core:SNR": 30,
+        "core:BW": "125k",
+        "core:hardware": "lora",
+        "core:hw": "N210",
+        "core:license": "",
+        "core:author": "David Badger",
+        "core:description": "Filtered",
+        "core:version": "0.0.2",
+        "core:datatype": "cf32_le"
+    },
+    "captures": [
+        {
+            "core:sample_start": 0,
+            "core:frequency": 433699999.98880228,
+            "core:datetime": "2019-08-01T19:01:30.338058000Z"
+        }
+    ],
+    "annotations": [
+        {
+            "core:generator": "USRP GPS Message",
+            "core:longitude": -87.06469666666666,
+            "core:latitude": 38.63564,
+            "core:sample_count": 0,
+            "core:sample_start": 666400
+        },
+        {
+            "core:generator": "USRP GPS Message",
+            "core:longitude": -87.06469666666666,
+            "core:latitude": 38.63564,
+            "core:sample_count": 0,
+            "core:sample_start": 1666510
+        },
+        {
+            "core:generator": "USRP GPS Message",
+            "core:longitude": -87.06469666666666,
+            "core:latitude": 38.63564,
+            "core:sample_count": 0,
+            "core:sample_start": 2666450
+        },
+        {
+            "core:generator": "USRP GPS Message",
+            "core:longitude": -87.06469666666666,
+            "core:latitude": 38.63564,
+            "core:sample_count": 0,
+            "core:sample_start": 3665540
+        },
+        {
+            "core:generator": "USRP GPS Message",
+            "core:longitude": -87.06469666666666,
+            "core:latitude": 38.63564,
+            "core:sample_count": 0,
+            "core:sample_start": 4665480
+        }
+    ]
+}
