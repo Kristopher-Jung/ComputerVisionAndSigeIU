@@ -10,3 +10,8 @@ Author: Kristopher H Jung
         
 This repo is for my research projects at IU Computer Vision Lab and IU Signal Processing Lab.
 I am working with professor David Crandall and Phd candidate David Badger.
+
+
+IUURC research poster.
+Indiana University Undergraduate Research Conference.
+![Imgur Image](https://i.imgur.com/fDaQCsK.jpg)
